@@ -6,6 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Users\benny\Desktop\quartzUI</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Public\QuarteUI</_PublishTargetUrl>
+    <History>True|2022-03-10T02:26:49.4285881Z;True|2022-03-10T10:18:46.5074321+08:00;True|2022-03-09T18:24:36.3587845+08:00;False|2022-03-09T18:24:01.2763439+08:00;True|2022-03-09T18:22:35.9438991+08:00;False|2022-03-09T18:21:50.7940339+08:00;False|2022-03-09T18:16:16.1296395+08:00;True|2022-03-09T17:07:09.1912321+08:00;</History>
   </PropertyGroup>
 </Project>

@@ -29,7 +29,6 @@ namespace Host
         {
             // 日志配置
             LogConfig();
-
             #region 跨域     
             services.AddCors(options =>
             {
@@ -56,7 +55,7 @@ namespace Host
                 {
                     t.Filters.Add<AuthorizationFilter>();
                 }).AddNewtonsoftJson();
-
+            
             services.AddHostedService<HostedService>();
             services.AddSingleton<SchedulerCenter>();
 
@@ -87,7 +86,7 @@ namespace Host
             }
 
             //app.UseMvc();
-
+            
             app.Use(async (context, next) =>
             {
                 await next();
@@ -101,7 +100,7 @@ namespace Host
             });
 
             //app.UseMvcWithDefaultRoute();
-
+            
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSwagger();

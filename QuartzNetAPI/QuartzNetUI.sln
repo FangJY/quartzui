@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Host", "Host\Host.csproj", "{62C51804-D792-491E-82E6-FF6FBAE2983C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.Tests", "Host.Tests\Host.Tests.csproj", "{F1DEDD79-ECBF-4482-8918-F20941CACABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{62C51804-D792-491E-82E6-FF6FBAE2983C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C51804-D792-491E-82E6-FF6FBAE2983C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C51804-D792-491E-82E6-FF6FBAE2983C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1DEDD79-ECBF-4482-8918-F20941CACABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1DEDD79-ECBF-4482-8918-F20941CACABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1DEDD79-ECBF-4482-8918-F20941CACABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1DEDD79-ECBF-4482-8918-F20941CACABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

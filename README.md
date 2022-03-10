@@ -37,6 +37,18 @@ docker run -v /fileData/quartzuifile:/app/File  --restart=unless-stopped --privi
 ```
 - 方式3（可直接通过源码部署到windows或linux平台） 
 
+### 卸载
+
+
+
+```bash
+SC queryex ServiceName
+
+taskkill /PID PID /f
+```
+
+
+
 ## 更换数据源  
 默认使用的是SQLite-Microsoft  
 如果需要使用其他数据源请自行在[appsettings.json](https://github.com/zhaopeiym/quartzui/blob/dev/QuartzNetAPI/Host/appsettings.json)进行正确配置。如：  
