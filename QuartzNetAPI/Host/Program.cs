@@ -49,9 +49,9 @@ namespace Host
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
 
-                x.SetServiceName("jkcQuarteUIService");
-                x.SetDisplayName("jkcQuarteUIService");
-                x.SetDescription("Jinko 电池后台任务");
+                x.SetServiceName("QuarteUIService");
+                x.SetDisplayName("QuarteUIService");
+                x.SetDescription("后台任务");
             });
             //CreateHostBuilder(args).Build().Run();
         }
