@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Talk.Extensions;
+using static Quartz.MisfireInstruction;
 
 namespace Host
 {
@@ -209,11 +210,15 @@ namespace Host
                 if (entity.TriggerType == TriggerTypeEnum.Cron)//CronExpression.IsValidExpression(entity.Cron))
                 {
                     trigger = CreateCronTrigger(entity);
+                    ((CronTriggerImpl)trigger).MisfireInstruction = MisfireInstruction.CronTrigger.DoNothing;
                 }
                 else
                 {
                     trigger = CreateSimpleTrigger(entity);
+                    ((SimpleTriggerImpl)trigger).MisfireInstruction = MisfireInstruction.CronTrigger.DoNothing;
                 }
+
+                
 
                 // 告诉Quartz使用我们的触发器来安排作业
                 await scheduler.ScheduleJob(job, trigger);
@@ -579,6 +584,7 @@ namespace Host
             else
             {
                 return TriggerBuilder.Create()
+                    
                .WithIdentity(entity.JobName, entity.JobGroup)
                .StartAt(entity.BeginTime)//开始时间
                                          //.EndAt(entity.EndTime)//结束数据
@@ -588,6 +594,7 @@ namespace Host
                         .RepeatForever()//无限循环
                         .WithMisfireHandlingInstructionFireNow();
                })
+               
                .ForJob(entity.JobName, entity.JobGroup)//作业名称
                .Build();
             }

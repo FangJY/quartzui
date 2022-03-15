@@ -14,9 +14,9 @@ namespace Host
             private IHost _host;
             private IHostBuilder _HostBuilde;
 
-            public void Start()
+            public void Start(string[] args)
             {
-                _HostBuilde = CreateHostBuilder(null);
+                _HostBuilde = CreateHostBuilder(args);
                 _host = _HostBuilde.Build();
                 _host.RunAsync();
             }
@@ -42,15 +42,15 @@ namespace Host
                 x.Service<RestService>(s =>
                 {
                     s.ConstructUsing(() => new RestService());
-                    s.WhenStarted(rs => rs.Start());
+                    s.WhenStarted(rs => rs.Start(args));
                     s.WhenStopped(rs => rs.Stop());
                     s.WhenShutdown(rs => rs.Stop());
                 });
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
 
-                x.SetServiceName("QuarteUIService");
-                x.SetDisplayName("QuarteUIService");
+                x.SetServiceName("jkcQuarteUIService002");
+                x.SetDisplayName("jkcQuarteUIService002");
                 x.SetDescription("后台任务");
             });
             //CreateHostBuilder(args).Build().Run();
