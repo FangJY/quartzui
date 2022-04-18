@@ -46,6 +46,8 @@ namespace Host
                 });
             });
 
+            
+
             //services.AddRouting(r => r.SuppressCheckForUnhandledSecurityMetadata = true);
             #endregion
 

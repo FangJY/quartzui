@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using System;
 using Topshelf;
@@ -7,6 +8,8 @@ namespace Host
 {
     public class Program
     {
+
+        IConfiguration configuration;
 
         private class RestService
         {
@@ -49,8 +52,8 @@ namespace Host
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
 
-                x.SetServiceName("jkcQuarteUIService002");
-                x.SetDisplayName("jkcQuarteUIService002");
+                x.SetServiceName("jkcQuarteUIService");
+                x.SetDisplayName("jkcQuarteUIService");
                 x.SetDescription("后台任务");
             });
             //CreateHostBuilder(args).Build().Run();
