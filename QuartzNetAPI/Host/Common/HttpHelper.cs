@@ -15,22 +15,26 @@ namespace Host
     /// </summary>
     public class HttpHelper
     {
+        public TimeSpan TimeoutTimeSpan { get; set; }= TimeSpan.FromMinutes(5);
         public static readonly HttpHelper Instance;
         static HttpHelper()
         {
             Instance = new HttpHelper();
+            
         }
         /// <summary>
         /// 不同url分配不同HttpClient
         /// </summary>
-        public static ConcurrentDictionary<string, HttpClient> dictionary = new ConcurrentDictionary<string, HttpClient>();
+        public static ConcurrentDictionary<string, HttpClient> dictionary { get; set; } = new ConcurrentDictionary<string, HttpClient>();
 
         private HttpClient GetHttpClient(string url)
         {
             var uri = new Uri(url);
             var key = uri.Scheme + uri.Host;
             //if (!dictionary.Keys.Contains(key))
-            return dictionary.GetOrAdd(key, new HttpClient());
+            var client= dictionary.GetOrAdd(key, new HttpClient());
+            client.Timeout= TimeoutTimeSpan;
+            return client;
             //return dictionary[key];
         }
 
@@ -53,6 +57,7 @@ namespace Host
                 //如果有headers认证等信息，则每个请求实例一个HttpClient
                 using (HttpClient http = new HttpClient())
                 {
+                    http.Timeout= TimeoutTimeSpan;
                     foreach (var item in headers)
                     {
                         http.DefaultRequestHeaders.Remove(item.Key);
@@ -93,6 +98,7 @@ namespace Host
                 //如果有headers认证等信息，则每个请求实例一个HttpClient
                 using (HttpClient http = new HttpClient())
                 {
+                    http.Timeout=TimeoutTimeSpan;
                     foreach (var item in headers)
                     {
                         http.DefaultRequestHeaders.Remove(item.Key);
@@ -125,6 +131,7 @@ namespace Host
                 //如果有headers认证等信息，则每个请求实例一个HttpClient
                 using (HttpClient http = new HttpClient())
                 {
+                    http.Timeout = TimeoutTimeSpan;
                     foreach (var item in headers)
                     {
                         http.DefaultRequestHeaders.Remove(item.Key);
@@ -165,6 +172,7 @@ namespace Host
                 //如果有headers认证等信息，则每个请求实例一个HttpClient
                 using (HttpClient http = new HttpClient())
                 {
+                    http.Timeout = TimeoutTimeSpan;
                     foreach (var item in headers)
                     {
                         http.DefaultRequestHeaders.Remove(item.Key);
